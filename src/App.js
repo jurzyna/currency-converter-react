@@ -1,7 +1,9 @@
 import styled from 'styled-components';
 import ResetStyle from './styles/reset.style';
 import GlobalStyle from './styles/global.style';
-
+import { Provider } from 'react-redux';
+import store from './store/store';
+import Converter from './containers/Converter';
 const MainStyled = styled.main`
   max-width: 72rem;
   margin: 10rem auto;
@@ -10,9 +12,11 @@ const MainStyled = styled.main`
 const App = () => {
   return (
     <MainStyled>
-      <ResetStyle />
-      <GlobalStyle />
-      <h1>Currency Conventer</h1>
+      <Provider store={store}>
+        <ResetStyle />
+        <GlobalStyle />
+        <Converter />
+      </Provider>
     </MainStyled>
   );
 };
